@@ -25,7 +25,7 @@ node{
   
   stage("Deploy docker image to Tomcat server"){
     def dockerRun = 'docker run -p 8080:8080 -d --name web-test kayeofhallownest/text1:v1'
-    sshagent(['dev-server']) {
+    sshagent(['ssh']) {
       sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.15.83 ${dockerRun}"
     }
   }
