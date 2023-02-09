@@ -13,7 +13,7 @@ node{
   
   stage("Push docker image"){
     withCredentials([string(credentialsId: 'passwd', variable: 'docker-passwd')]) {
-      sh "docker login -u kayeofhallownest -p ${docker-passwd}"
+      sh "docker login -u kayeofhallownest -p ${passwd}"
     }
     sh 'docker push kayeofhallownest/text1:v1'
   }
