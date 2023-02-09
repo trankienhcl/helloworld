@@ -12,8 +12,8 @@ node{
   }
   
   stage("Push docker image"){
-    withCredentials([string(credentialsId: '0101', variable: 'docker-test')]) {
-      sh "docker login -u kayeofhallownest -p ${docker-test}"
+    withCredentials([string(credentialsId: 'passwd', variable: 'docker-passwd')]) {
+      sh "docker login -u kayeofhallownest -p ${docker-passwd}"
     }
     sh 'docker push kayeofhallownest/text1:v1'
   }
