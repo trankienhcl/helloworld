@@ -16,12 +16,12 @@ node{
     sh 'docker push kayeofhallownest/text1:v2'
   }
   
-  stage("Remove"){
-     def dockerRm = 'docker container rm -f my-app-2'
-     sshagent(['ssh']) {
-       sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.15.83 ${dockerRm}"
-     }
-   }
+  //stage("Remove"){
+   //  def dockerRm = 'docker container rm -f my-app-2'
+    // sshagent(['ssh']) {
+    //   sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.15.83 ${dockerRm}"
+    // }
+  // }
   
   stage("Deploy docker image to Tomcat server"){
     def dockerRun = 'docker run -p 8080:8080 -d --name web-test kayeofhallownest/text1:v2'
