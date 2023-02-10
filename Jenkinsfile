@@ -17,9 +17,9 @@ node{
   }
   
   stage("Remove"){
-     def dockerRm = 'docker container rm -f my-app-2'
-     sshagent(['dev-server']) {
-       sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.7.92 ${dockerRm}"
+     def dockerRm = 'docker container rm -f text1'
+     sshagent(['ssh']) {
+       sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.15.83 ${dockerRm}"
      }
    }
   
